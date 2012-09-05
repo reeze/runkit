@@ -211,7 +211,7 @@ static int php_runkit_constant_add(char *classname, int classname_len, char *con
 	copyval->RUNKIT_REFCOUNT = 1;
 	copyval->is_ref = 0;
 #endif
-	Z_ADDREF_P(copyval);
+
 	if (zend_hash_add(&ce->constants_table, constname, constname_len + 1, &copyval, sizeof(zval *), NULL) == FAILURE) {
 		php_error_docref(NULL TSRMLS_CC, E_WARNING, "Unable to add constant to class definition");
 		zval_ptr_dtor(&copyval);
