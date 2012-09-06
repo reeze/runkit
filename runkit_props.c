@@ -181,7 +181,7 @@ int php_runkit_def_prop_add_int(zend_class_entry *ce, const char *propname, int 
 #if (PHP_MAJOR_VERSION == 5 && PHP_MINOR_VERSION >= 4) || (PHP_MAJOR_VERSION > 5)
 			str_efree(prop_info_ptr->name);
 #endif
-			prop_info_ptr->name = estrndup(newkey, newkey_len);
+			prop_info_ptr->name = newkey;
 			prop_info_ptr->name_length = newkey_len;
 			prop_info_ptr->h = zend_get_hash_value(prop_info_ptr->name, prop_info_ptr->name_length + 1);
 		}
