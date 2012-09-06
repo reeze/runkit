@@ -409,14 +409,8 @@ int php_runkit_def_prop_remove_int(zend_class_entry *ce, const char *propname, i
 			object = (zend_object *) EG(objects_store).object_buckets[i].bucket.obj.object;
 			if (object->ce == ce) {
 #if (PHP_MAJOR_VERSION == 5 && PHP_MINOR_VERSION >= 4) || (PHP_MAJOR_VERSION > 5)
-				if (object->properties_table) {
-					if (object->properties_table[offset]) {
-						Z_DELREF_P(object->properties_table[offset]);
-						if (Z_REFCOUNT_P(object->properties_table[offset]) == 0) {
-							zval_ptr_dtor(&object->properties_table[offset]);
-							FREE_ZVAL(object->properties_table[offset]);
-						}
-					}
+				if (object->properties_table && object->properties_table[offset]) {
+					zval_ptr_dtor(&object->properties_table[offset]);
 					object->properties_table[offset] = NULL;
 				}
 #else
