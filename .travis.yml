@@ -7,6 +7,8 @@ before_script:
   - phpize && ./configure && make && sudo make install
   - echo "extension=runkit.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
+script: sh travis/run-test.sh
+
 notifications:
   email:
     - reeze.xia@gmail.com
