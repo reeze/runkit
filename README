@@ -1,6 +1,9 @@
 Runkit extension for PHP
 ========================
 
+[![Build Status](https://secure.travis-ci.org/reeze/runkit.png)](http://travis-ci.org/reeze/runkit)
+
+
 For all those things you.... probably shouldn't have been doing anyway....
 
 Runkit has three groups of features outlined below:
