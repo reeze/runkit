@@ -7,7 +7,7 @@ env:
   - REPORT_EXIT_STATUS=1 NO_INTERACTION=1
 
 before_script:
-  - phpize && ./configure --enable-runkit --enable-runkit-sandbox --enable-runkit-super --enable-runkit-sandbox
+  - phpize && ./configure --enable-runkit --enable-runkit-modify --enable-runkit-super --enable-runkit-sandbox:
   - make && sudo make install
   - echo "extension=runkit.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
